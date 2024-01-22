@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Credit Card Data Submission</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <h2>Submit Credit Card Data</h2>
-    <form id="ccForm">
-        Customer ID: <input type="text" name="customer_id"><br>
-        Transaction Amount: <input type="text" name="tx_amount"><br>
-        <button type="submit">Submit</button>
-    </form>
+from flask import Flask, render_template
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
-</html>
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
