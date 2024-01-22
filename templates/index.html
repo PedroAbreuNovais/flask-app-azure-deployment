@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Credit Card Data Submission</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <h2>Submit Credit Card Data</h2>
@@ -11,26 +12,6 @@
         <button type="submit">Submit</button>
     </form>
 
-    <script>
-        document.getElementById('ccForm').onsubmit = function(event) {
-            event.preventDefault();
-
-            // Fetch form data
-            var formData = new FormData(document.getElementById('ccForm'));
-
-            // Send data to Flask backend
-            fetch('/submit', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data); // Handle the response data
-            })
-            .catch(error => {
-                console.error('Error:', error); // Handle errors
-            });
-        };
-    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
