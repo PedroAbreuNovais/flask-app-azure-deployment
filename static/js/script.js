@@ -1,18 +1,22 @@
-document.getElementById('ccForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('ccForm');
 
-    var formData = new FormData(this);
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
 
-    fetch('/submit', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert('API Response: ' + JSON.stringify(data));
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Error: ' + error);
+        var formData = new FormData(form);
+
+        fetch('/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('apiResponse').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('apiResponse').textContent = 'Error: ' + error;
+        });
     });
 });
