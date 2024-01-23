@@ -11,8 +11,8 @@ def index():
 def submit():
     customer_id = request.form['customer_id']
     tx_amount = request.form['tx_amount']
-    terminal_id = request.form['terminal_id']
-    tx_payment = request.form['tx_payment']
+    terminal_id = 3 #request.form['terminal_id']
+    tx_payment = "POS"#request.form['tx_payment']
 
     # Static data
     date = "2021-02-04T19:48:17.000Z"
