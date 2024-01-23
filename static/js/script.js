@@ -1,25 +1,18 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('ccForm');
+document.getElementById('ccForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
+    var formData = new FormData(this);
 
-        // Fetch form data
-        var formData = new FormData(form);
-
-        // Send data to Flask backend
-        fetch('/submit', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            alert('API Response: ' + JSON.stringify(data));
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Error: ' + error);
-        });
+    fetch('/submit', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('API Response: ' + JSON.stringify(data));
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error: ' + error);
     });
 });
