@@ -16,15 +16,15 @@ def submit_form():
     tx_payment = "POS"
 
     # Construct the API URL with the data
-    api_url = f"https://api-ad2bfb4d-4efc3229-dku.eu-west-3.app.dataiku.io/public/api/v1/cc_f/sc/run?customer_id={customer_id}&date={date}&terminal_id={terminal_id}&tx_amount={tx_amount}&tx_id={tx_id}&tx_payment={tx_payment}"
+    #api_url = f"https://api-ad2bfb4d-4efc3229-dku.eu-west-3.app.dataiku.io/public/api/v1/cc_f/sc/run?customer_id={customer_id}&date={date}&terminal_id={terminal_id}&tx_amount={tx_amount}&tx_id={tx_id}&tx_payment={tx_payment}"
 
     # Make a GET request to the external API
-    try:
-        response = requests.get(api_url)
-        response.raise_for_status()
-        return jsonify(response.json())  # Return the JSON response from the API
-    except requests.RequestException as e:
-        return jsonify({'error': str(e)}), 500
+    #try:
+    #    response = requests.get(api_url)
+     #   response.raise_for_status()
+     #   return jsonify(response.json())  # Return the JSON response from the API
+    #except requests.RequestException as e:
+    #    return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
