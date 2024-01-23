@@ -17,7 +17,10 @@ def submit():
     # Static data
     # date = "2021-02-04T19:48:17.000Z"
     #terminal_id = "7"
-    tx_id = "4fc665829b61724781c47042ec17f81456dfee3fc20d7f256818e3ee4f44062"
+    
+    # Generate a random UUID and convert to a hexadecimal string
+    tx_id = uuid.uuid4().hex
+    # tx_id = "4fc665829b61724781c47042ec17f81456dfee3fc20d7f256818e3ee4f44062"
     #tx_payment = "POS"
 
     # API endpoint
