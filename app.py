@@ -13,9 +13,9 @@ def submit():
     tx_amount = request.form['tx_amount']
     tx_payment =  request.form['tx_payment']
     terminal_id = request.form['terminal_id']
-    
+    date = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.000Z")
     # Static data
-    date = "2021-02-04T19:48:17.000Z"
+    # date = "2021-02-04T19:48:17.000Z"
     #terminal_id = "7"
     tx_id = "4fc665829b61724781c47042ec17f81456dfee3fc20d7f256818e3ee4f44062"
     #tx_payment = "POS"
