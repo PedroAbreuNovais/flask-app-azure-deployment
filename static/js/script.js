@@ -1,19 +1,25 @@
-//document.getElementById('ccForm').onsubmit = function(event) {
- //   event.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('ccForm');
 
-    // Fetch form data
-   // var formData = new FormData(document.getElementById('ccForm'));
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
 
-    // Send data to Flask backend
-    //fetch('/submit', {
-     //   method: 'POST',
-        body: formData
-    //})
-    //.then(response => response.json())
-    //.then(data => {
-    //    console.log(data); // Handle the response data
-    })
-    //.catch(error => {
-        console.error('Error:', error); // Handle errors
-   // });
-//};
+        // Fetch form data
+        var formData = new FormData(form);
+
+        // Send data to Flask backend
+        fetch('/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            alert('API Response: ' + JSON.stringify(data));
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error: ' + error);
+        });
+    });
+});
