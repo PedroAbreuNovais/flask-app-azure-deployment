@@ -1,5 +1,70 @@
-/* Add your CSS styling here */
 body {
     font-family: Arial, sans-serif;
-    /* Other styles as needed */
+    background-color: #f4f4f4;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    flex-wrap: wrap;
+}
+
+.form-container, .output-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+h2, h3 {
+    color: #444;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.api-response {
+    white-space: pre-wrap; /* Ensures formatting of JSON response */
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-container, .output-container {
+        width: 100%;
+    }
 }
