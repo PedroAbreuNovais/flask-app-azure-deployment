@@ -1,33 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Credit Card Data Submission</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <h2>Submit Credit Card Data</h2>
     <form id="ccForm">
         Customer ID: <input type="text" name="customer_id"><br>
         Transaction Amount: <input type="text" name="tx_amount"><br>
         <button type="submit">Submit</button>
     </form>
 
-    <script>
-        document.getElementById('ccForm').onsubmit = function(event) {
-            event.preventDefault();
-            var formData = new FormData(document.getElementById('ccForm'));
-
-            fetch('/api/submit', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                alert('API Response: ' + JSON.stringify(data));
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        };
-    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
